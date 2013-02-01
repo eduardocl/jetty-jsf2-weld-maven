@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 
-	<persistence-unit name="pu">
+	<persistence-unit name="jettyappDS">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
 			<!-- Auto detect annotation model classes -->
@@ -39,6 +39,31 @@
 			<property name="hibernate.connection.password" value="password" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/dbname" />
 -->
+
+
+<!-- 
+		<persistence xmlns="http://java.sun.com/xml/ns/persistence"  
+		       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		       xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" 
+		        version="2.0"> 
+		
+		<persistence-unit name="sqlite-jpa">
+		 <provider>org.hibernate.ejb.HibernatePersistence</provider> 
+		<class>com.blogspot.thedevside.entity.Person</class>
+		
+		<properties>
+		 <property name="hibernate.dialect" value="com.ecl.persistece.sqlite.SQLiteDialect"/>
+		 <property name="hibernate.hbm2ddl.auto" value="create"/>
+		 <property name="hibernate.show_sql" value="true"/>
+		 <property name="hibernate.format_sql" value="false"/>
+		 <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+		 <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:thedevside.db"/>
+		</properties>
+		
+		</persistence-unit> 
+		</persistence>
+ -->
+
 
 		</properties>
 	</persistence-unit>
