@@ -1,12 +1,15 @@
 package com.ecl.domain;
 
-import javax.faces.bean.*;
+import java.io.Serializable;
+
+import javax.enterprise.inject.Alternative;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.ecl.business.MyController;
-
-import java.io.Serializable;
 
 @ManagedBean
 @SessionScoped
@@ -21,10 +24,12 @@ public class HelloWorldBean implements Serializable {
   @ManagedProperty(value = "#{demoService}")
   private Service service;
   
-//  @Inject 
-//  private EntityManager em;
+  @Inject 
+  @Alternative
+  private EntityManager em;
   
   public String getName() {
+	  System.out.println(em);
     return name;
   }
 

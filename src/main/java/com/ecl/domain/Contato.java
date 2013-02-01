@@ -2,6 +2,7 @@ package com.ecl.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -10,6 +11,7 @@ public class Contato {
 
 	
 	@GeneratedValue
+	@Id
 	private Long Id;
 
 	private String nome;
