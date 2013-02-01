@@ -2,12 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>sh.app.sample-projects</groupId>
-	<artifactId>jetty-app</artifactId>
-	<version>0.0.1.beta</version>
+	<artifactId>jettyapp</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>Jetty with JSF 2</name>
+	<name>jettyapp</name>
 
 
 
@@ -114,6 +113,8 @@
 	</dependencies>
 
 	<build>
+
+        <finalName>jettyapp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -134,13 +135,22 @@
 				<artifactId>maven-jetty-plugin</artifactId>
 				<configuration>
 					<!-- force friendly name instead of artifact name + version -->
-					<contextPath>${build.finalName}</contextPath>
+					<!-- <contextPath>${build.finalName}</contextPath> -->
 					<!-- Where the BeanManager is constructed. This is where we'll later 
 						declare datasource. -->
-					<jettyEnvXml>${basedir}/src/test/resources/jetty-env.xml</jettyEnvXml>
+					<!-- <jettyEnvXml>${basedir}/src/test/resources/jetty-env.xml</jettyEnvXml> -->
 					<!-- This parameter will auto-deploy modified classes...my personal 
 						favorite Jetty feature. -->
 					<scanIntervalSeconds>3</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+
+            <!--  Tomcat plugin for embedded tomcat  -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<path>/${project.build.finalName}</path>
 				</configuration>
 			</plugin>
 
